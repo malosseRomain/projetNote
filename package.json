@@ -1,22 +1,32 @@
 {
-  "name": "blog-quality-project",
-  "version": "1.0.0",
-  "description": "Projet noté - Qualité algorithmique",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "commitlint": "^19.7.1",
-    "ejs": "^3.1.10",
-    "express": "^4.21.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
-    "husky": "^9.1.7",
-    "nodemon": "^3.1.9"
-  }
+    "name": "blog-quality-project",
+    "version": "1.0.0",
+    "description": "Projet noté - Qualité algorithmique",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "prepare": "husky",
+        "format": "prettier --write .",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "dependencies": {
+        "commitlint": "^19.7.1",
+        "ejs": "^3.1.10",
+        "express": "^4.21.2"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.7.1",
+        "@commitlint/config-conventional": "^19.7.1",
+        "@eslint/js": "^9.20.0",
+        "eslint": "^9.20.1",
+        "eslint-plugin-react": "^7.37.4",
+        "globals": "^15.15.0",
+        "husky": "^9.1.7",
+        "nodemon": "^3.1.9",
+        "prettier": "^3.5.1",
+        "typescript-eslint": "^8.24.1"
+    }
 }
