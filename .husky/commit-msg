@@ -1,0 +1,7 @@
+#!/bin/sh
+if ! npx --no-install commitlint --edit "$1" >/dev/null 2>&1; then
+  echo "❌ ERREUR : Ton message de commit ne respecte pas la convention !"
+  echo "👉 Format attendu : type(scope): description"
+  echo "   Exemple : feat(auth): ajout de l'authentification"
+  exit 1
+fi
