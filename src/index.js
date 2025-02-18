@@ -23,7 +23,7 @@ app.get("/posts", (req, res) => {
 app.post("/posts", (req, res) => {
     const post = postService.createPost(req.body);
     console.log(post);
-    res.redirect(`/posts`);
+    res.redirect("/posts");
 });
 
 app.get("/posts/new", (req, res) => {
@@ -56,11 +56,5 @@ app.post("/posts/:id", (req, res) => {
 
 const PORT = process.env.PORT || 3009;
 app.listen(PORT, () => {
-    console.log(`Server running on  http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
-
-const message = "Hello world";
-console.log(message);
-
-const x = 42;
-console.log(x); // Ceci est une erreur si la règle "no-console" est activée

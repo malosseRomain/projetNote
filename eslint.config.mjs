@@ -6,28 +6,33 @@ import pluginReact from "eslint-plugin-react";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-    { languageOptions: { globals: globals.browser } }, // Définition des globales pour le navigateur
+    { languageOptions: { globals: globals.browser } },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     {
         settings: {
             react: {
-                version: "18" // spécifie la version de React
+                version: "18"
             }
         }
     },
     {
         languageOptions: {
             globals: {
-                process: "readonly", // Autorise process dans l'environnement Node.js
-                module: "readonly" // Autorise module dans l'environnement Node.js
+                process: "readonly",
+                module: "readonly"
             }
         }
     },
     {
-        // rules: {
-        //     "no-console": "error" // Ajout de la règle no-console pour signaler les console.log
-        // }
+        plugins: {
+            unusedImports: pluginUnusedImports
+        },
+        rules: {
+            quotes: ["error", "double"],
+            indent: ["error", 4],
+            semi: ["error", "always"]
+        }
     }
 ];
