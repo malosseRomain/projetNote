@@ -1,4 +1,8 @@
-import data from "../data.json";
+import { readFileSync } from "fs";
+import { join } from "path";
+
+const dataPath = join(process.cwd(), "src", "data.json");
+const data = JSON.parse(readFileSync(dataPath, "utf-8"));
 
 class PostService {
     constructor() {
@@ -41,4 +45,4 @@ class PostService {
     }
 }
 
-module.exports = PostService;
+export default PostService;

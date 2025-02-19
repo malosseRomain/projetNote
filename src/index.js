@@ -1,5 +1,5 @@
 import express from "express";
-import PostService from "./services/PostService";
+import PostService from "./services/PostService.js";
 
 const app = express();
 
