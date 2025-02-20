@@ -50,6 +50,5 @@ class PostService {
         return this.posts[index];
     }
 }
-const unused = 1;
 
 export default PostService;
