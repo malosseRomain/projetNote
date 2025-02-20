@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+    (this && this.__importDefault) ||
+    function (mod) {
+        return mod && mod.__esModule ? mod : { default: mod };
+    };
 Object.defineProperty(exports, "__esModule", { value: true });
 const data_json_1 = __importDefault(require("../data.json"));
 class PostService {
@@ -20,16 +22,20 @@ class PostService {
             title: postData.title,
             content: postData.content,
             author: postData.author,
-            createdAt: new Date().toISOString(),
+            createdAt: new Date().toISOString()
         };
         this.posts.push(newPost);
         return newPost;
     }
     updatePost(id, postData) {
         const index = this.posts.findIndex((post) => post.id === id);
-        if (index === -1)
-            return null;
-        this.posts[index] = Object.assign(Object.assign({}, this.posts[index]), { title: postData.title, content: postData.content, author: postData.author, updatedAt: new Date().toISOString() });
+        if (index === -1) return null;
+        this.posts[index] = Object.assign(Object.assign({}, this.posts[index]), {
+            title: postData.title,
+            content: postData.content,
+            author: postData.author,
+            updatedAt: new Date().toISOString()
+        });
         return this.posts[index];
     }
 }

@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 {
     "name": "blog-quality-project",
     "version": "1.0.0",
     "description": "Projet noté - Qualité algorithmique",
-    "main": "src/index.js",
-    "type": "module",
+    "main": "index.js",
     "scripts": {
         "start": "node src/index.js",
         "dev": "nodemon src/index.js",
@@ -14,7 +12,7 @@
         "lint:fix": "eslint . --fix"
     },
     "dependencies": {
-      "body-parser": "^1.20.3",
+        "body-parser": "^1.20.3",
         "commitlint": "^19.7.1",
         "ejs": "^3.1.10",
         "express": "^4.21.2",
@@ -35,26 +33,3 @@
         "@types/express": "^5.0.0"
     }
 }
-=======
-{
-  "name": "blog-quality-project",
-  "version": "1.0.0",
-  "description": "Projet noté - Qualité algorithmique",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
-  },
-  "dependencies": {
-    "body-parser": "^1.20.3",
-    "ejs": "^3.1.10",
-    "express": "^4.21.2",
-    "typescript": "^5.7.3"
-  },
-  "devDependencies": {
-    "@types/body-parser": "^1.19.5",
-    "@types/express": "^5.0.0",
-    "nodemon": "^3.1.9"
-  }
-}
->>>>>>> dadbea46061c852fb842a9827d4e952502e59fc7

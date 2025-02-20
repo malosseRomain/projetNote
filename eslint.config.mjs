@@ -26,9 +26,6 @@ export default [
         }
     },
     {
-        plugins: {
-            unusedImports: pluginUnusedImports
-        },
         rules: {
             quotes: ["error", "double"],
             indent: ["error", 4],
