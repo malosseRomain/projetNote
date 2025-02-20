@@ -61,3 +61,20 @@ Pour voir les erreurs de linting directement dans l'éditeur, ajoutez dans setti
 Cela permet de détecter et d'afficher les erreurs de linting en temps réel.
 
 ### 3. Passage à TypeScript
+
+
+
+
+
+### 7. Automatisation avec GitHub Actions
+
+#### 7.1 Exécuter ESLint
+
+L'analyse du code avec **ESLint** est automatisée via **GitHub Actions**. Chaque **push** ou **pull request** sur la branche **main** déclenche une pipeline CI qui :
+
+  Récupère le code depuis le repository.
+  Configure Node.js avec la version appropriée.
+  Installe les dépendances via npm install.
+  Exécute ESLint pour vérifier la qualité du code.
+
+Par exemple, sur mon premier commit, j'avais un avertissement me signalant que la mise en cache n'était pas trouvée. Et sur le deuxième commit, la pipeline n'est pas passée car j'avais une erreur dans ma commande ESLint avec une option invalide.
