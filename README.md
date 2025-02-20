@@ -59,3 +59,5 @@ Pour voir les erreurs de linting directement dans l'éditeur, ajoutez dans setti
   "eslint.run": "onSave"
 
 Cela permet de détecter et d'afficher les erreurs de linting en temps réel.
+
+### 3. Passage à TypeScript
