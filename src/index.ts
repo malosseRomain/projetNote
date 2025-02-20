@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import * as bodyParser from "body-parser";
 import PostService from "./services/PostService";
-import Post from "./services/PostService";
 
 const app = express();
 
@@ -17,13 +16,11 @@ app.get("/", (req: Request, res: Response): void => {
 });
 
 app.get("/posts", (req: Request, res: Response): void => {
-    const posts: any = postService.getAllPosts();
-    res.render("posts", { posts });
+    res.render("posts", { posts: postService.getAllPosts() });
 });
+
 app.post("/posts", (req: Request, res: Response): void => {
-    console.log(req);
-    const post: any = postService.createPost(req.body);
-    console.log(post);
+    postService.createPost(req.body);
     res.redirect("/posts");
 });
 
@@ -33,26 +30,24 @@ app.get("/posts/new", (req: Request, res: Response): void => {
 
 app.get("/posts/:id/edit", (req: Request, res: Response): void => {
     const postId: number = parseInt(req.params.id);
-    const post: any = postService.getPostById(postId);
 
-    if (!post) {
+    if (!postService.getPostById(postId)) {
         res.status(404).json({ error: "Post not found" });
         return;
     }
 
-    res.render("edit-post", { post });
+    res.render("edit-post", { post: postService.getPostById(postId) });
 });
 
 app.get("/posts/:id", (req: Request, res: Response): void => {
     const postId: number = parseInt(req.params.id);
-    const post: any = postService.getPostById(postId);
 
-    if (!post) {
+    if (!postService.getPostById(postId)) {
         res.status(404).json({ error: "Post not found" });
         return;
     }
 
-    res.render("post", { post });
+    res.render("post", { post: postService.getPostById(postId) });
 });
 
 app.post("/posts/:id", (req: Request, res: Response): void => {

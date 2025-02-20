@@ -68,13 +68,10 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 app.get("/posts", (req, res) => {
-    const posts = postService.getAllPosts();
-    res.render("posts", { posts });
+    res.render("posts", { posts: postService.getAllPosts() });
 });
 app.post("/posts", (req, res) => {
-    console.log(req);
-    const post = postService.createPost(req.body);
-    console.log(post);
+    postService.createPost(req.body);
     res.redirect("/posts");
 });
 app.get("/posts/new", (req, res) => {
@@ -82,21 +79,19 @@ app.get("/posts/new", (req, res) => {
 });
 app.get("/posts/:id/edit", (req, res) => {
     const postId = parseInt(req.params.id);
-    const post = postService.getPostById(postId);
-    if (!post) {
+    if (!postService.getPostById(postId)) {
         res.status(404).json({ error: "Post not found" });
         return;
     }
-    res.render("edit-post", { post });
+    res.render("edit-post", { post: postService.getPostById(postId) });
 });
 app.get("/posts/:id", (req, res) => {
     const postId = parseInt(req.params.id);
-    const post = postService.getPostById(postId);
-    if (!post) {
+    if (!postService.getPostById(postId)) {
         res.status(404).json({ error: "Post not found" });
         return;
     }
-    res.render("post", { post });
+    res.render("post", { post: postService.getPostById(postId) });
 });
 app.post("/posts/:id", (req, res) => {
     console.log(req.params.id);
