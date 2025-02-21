@@ -61,3 +61,42 @@ Pour voir les erreurs de linting directement dans l'éditeur, ajoutez dans setti
 Cela permet de détecter et d'afficher les erreurs de linting en temps réel.
 
 ### 3. Passage à TypeScript
+
+
+
+
+### 5. Tests Unitaires et End-to-End
+
+#### Tests Unitaires : 
+
+Utilisation du package `Vitest`
+
+Les fichiers de test unitaire ce situe dans src/tests/
+
+##### Configuration de vitest dans le fichier `vitest.config.ts`: 
+
+- **include**: permet d'inclure les chemins des tests a effectuer. 
+- **coverage**: sert à spécifier le moteur utilisé pour analyser la couverture de code. 
+
+
+#### Test End to End: 
+
+**!! Attention: Avant de lancer les tests e2e, modifier la variable BASE_URL des fichiers test avec l'URL de votre projet !!**
+**!! Attention: Modifier dans le fichier `playwright.config.ts` *l'url du webserver avec l'URL que votre projet utilise !!**
+
+Utilisation du package `Playwright` 
+
+Les fichiers de test e2e ce situe dans src/e2e/
+
+##### Configuration de vitest dans le fichier :** `playwright.config.ts`:
+
+- **webserver**: sert à démarrer une application en mode développement.
+- **testDir**: sert a mettre le chemin du dossier des fichiers de test.
+- **testMatch**: sert a savoir les extensions des fichiers de test.
+
+### Scripts dans `package.json` pour les tests 
+
+- `npm run test` : Permet de lancer les tests unitaires effectuer.
+- `npm run test:e2e` : Permet de lancer les tests End to End effectuer.
+- `npm run test:watch` : Dès la modification d'un fichier, les tests associés sont relancés automatiquement.
+- `npm run test:coverage` : Génère un rapport de couverture de code.
