@@ -4,8 +4,9 @@
     "description": "Projet noté - Qualité algorithmique",
     "main": "index.js",
     "scripts": {
-        "start": "node src/index.js",
-        "dev": "nodemon src/index.js",
+        "start": "npx tsc && node dist/index.js",
+        "dev": "nodemon dist/index.js",
+        "compile": "npx tsc",
         "prepare": "husky",
         "format": "prettier --write .",
         "lint": "eslint .",

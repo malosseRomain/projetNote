@@ -62,7 +62,15 @@ Cela permet de détecter et d'afficher les erreurs de linting en temps réel.
 
 ### 3. Passage à TypeScript
 
+Passage du code JavaScript en TypeScript (rajout des types et changement des require)
 
+Ajout des dépendance TypeScript (@types/express, @types/body-parser)
+
+Modification des scripts dans package.json
+
+npm start & npm dev Compile le code .ts en code .js avant de lancer node & nodemon
+
+Ajout de npm compile pour compiler le code ts
 
 
 
