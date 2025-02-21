@@ -82,13 +82,14 @@ Les fichiers de test unitaire ce situe dans src/tests/
 #### Test End to End: 
 
 **!! Attention: Avant de lancer les tests e2e, modifier la variable BASE_URL des fichiers test avec l'URL de votre projet !!**
-**!! Attention: Modifier dans le fichier `playwright.config.ts` *l'url du webserver avec l'URL que votre projet utilise !!**
+
+**!! Attention: Modifier dans le fichier `playwright.config.ts` l'url du webserver avec l'URL que votre projet utilise !!**
 
 Utilisation du package `Playwright` 
 
 Les fichiers de test e2e ce situe dans src/e2e/
 
-##### Configuration de vitest dans le fichier :** `playwright.config.ts`:
+##### Configuration de vitest dans le fichier :`playwright.config.ts`:
 
 - **webserver**: sert à démarrer une application en mode développement.
 - **testDir**: sert a mettre le chemin du dossier des fichiers de test.
