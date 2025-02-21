@@ -81,7 +81,7 @@ Les fichiers de test unitaire ce situe dans src/tests/
 
 #### Test End to End: 
 
-**!! Attention: Avant de lancer les tests e2e, modifier la variable BASE_URL des fichiers test avec l'URL de votre projet !!**
+**!! Attention: Modifier la variable BASE_URL des fichiers test avec l'URL de votre projet !!**
 
 **!! Attention: Modifier dans le fichier `playwright.config.ts` l'url du webserver avec l'URL que votre projet utilise !!**
 
