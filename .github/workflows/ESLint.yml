@@ -1,0 +1,30 @@
+name: Lint Codebase
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    eslint:
+        name: Run ESLint
+        runs-on: ubuntu-latest # plus rapide que windows-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.13.0
+                  cache: "npm" # accélére les installations
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run ESLint
+              run: npx eslint src --config eslint.config.mjs # force l'utilisation de eslint.config.mjs

@@ -65,6 +65,7 @@ Cela permet de détecter et d'afficher les erreurs de linting en temps réel.
 
 
 
+
 ### 5. Tests Unitaires et End-to-End
 
 #### Tests Unitaires : 
@@ -101,3 +102,23 @@ Les fichiers de test e2e ce situe dans src/e2e/
 - `npm run test:e2e` : Permet de lancer les tests End to End effectuer.
 - `npm run test:watch` : Dès la modification d'un fichier, les tests associés sont relancés automatiquement.
 - `npm run test:coverage` : Génère un rapport de couverture de code.
+
+### 7. Automatisation avec GitHub Actions
+
+#### 7.1 Exécuter ESLint
+
+L'analyse du code avec **ESLint** est automatisée via **GitHub Actions**. Chaque **push** ou **pull request** sur la branche **main** déclenche une pipeline CI qui :
+    Récupère le code depuis le repository.
+    Configure Node.js avec la version appropriée.
+    Installe les dépendances via npm install.
+    Exécute ESLint pour vérifier la qualité du code.
+
+1️⃣ Premier commit → Un warning indiquait que la mise en cache de npm n'avait pas été trouvée.
+2️⃣ Deuxième commit → La pipeline a échoué en raison d'une erreur dans la commande ESLint : une option invalide était utilisée.
+3️⃣ Septième commit → J’ai ajouté une variable inutilisée pour tester si ESLint détectait bien les erreurs. Comme prévu, la pipeline a échoué avec le message suivant :
+  Run ESLint: src/services/PostService.ts#L53
+  'unused' is assigned a value but never used
+Cela prouve que la vérification ESLint fonctionne correctement dans GitHub Actions.
+4️⃣ Huitième commit → J’ai supprimé la ligne contenant la variable inutilisée. Après cette correction, la pipeline s'est exécutée avec succès.
+
+Grâce à cette configuration, chaque commit est automatiquement vérifié, et toute erreur ESLint bloque le merge, garantissant ainsi un code propre et conforme aux règles définies.
