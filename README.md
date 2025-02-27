@@ -72,7 +72,17 @@ npm start & npm dev Compile le code .ts en code .js avant de lancer node & nodem
 
 Ajout de npm compile pour compiler le code ts
 
+### 4. Debugging et Performance
 
+### Debugging: 
+
+Lancer dans un terminal à la racine du projet `npm run debug`
+
+Ouvrir Chrome, et rentrer l'url `chrome://inspect`, cliquer sur `Open dedicated DevTools for Node` et enfin accéder au fichier index.js
+
+Possibilité de placer des breakpoints sur des lignes du code d'un simple clique sur le numéro de la ligne, il suffit alors de recharger le projet pour s'arrêter sur la ligne.
+
+Option `Pause on uncaught exceptions` si on veut s'arrêter dès qu'il y a une erreur.
 
 ### 5. Tests Unitaires et End-to-End
 
