@@ -74,7 +74,7 @@ Ajout de npm compile pour compiler le code ts
 
 ### 4. Debugging et Performance
 
-### Debugging: 
+### Debugging : 
 
 Lancer dans un terminal à la racine du projet `npm run debug`
 
@@ -83,6 +83,21 @@ Ouvrir Chrome, et rentrer l'url `chrome://inspect`, cliquer sur `Open dedicated 
 Possibilité de placer des breakpoints sur des lignes du code d'un simple clique sur le numéro de la ligne, il suffit alors de recharger le projet pour s'arrêter sur la ligne.
 
 Option `Pause on uncaught exceptions` si on veut s'arrêter dès qu'il y a une erreur.
+
+### Performance :
+
+Nécessaire d'installer autocannon avec `npm install -g autocannon`
+
+Pour faire un test de performance on exécute:
+
+`autocannon -c 50 -d 15 http://localhost:3009 --json > rapport.json`
+
+Explications: 
+
+  - `-c 50` défini le nombre de connections simultanée (ici 50 car on ne s'attend pas à un nombre énorme de connection à la fois)
+  - `-d 15` est la durée en seconde pour chaque connection, 15 secondes permet de tester le serveur sans le surcharger
+  - On met ensuite l'adresse du serveur à tester (ici un local)
+  - `--json > rapport.json` est optionel et permet de stocker les résultats de la commande dans le json précisé, si on ignore cet argument, les résultats seront présentés directement dans le terminal.
 
 ### 5. Tests Unitaires et End-to-End
 
