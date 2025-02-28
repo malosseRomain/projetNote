@@ -1,7 +1,12 @@
 # projetNote
-projet noté de compléxité algo
+Projet noté de compléxité algorithmique
 
+Membres du groupe:
 
+Yohan ALI
+Romain MALOSSE
+Louis SAFFRÉ
+Guillaume SCORDIA
 
 ### 1. Linting des commits
 
