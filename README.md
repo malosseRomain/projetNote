@@ -5,7 +5,7 @@ Membres du groupe:
 
 Yohan ALI
 Romain MALOSSE
-Louis SAFFRÉ
+Louis SAFFRE
 Guillaume SCORDIA
 
 ### 1. Linting des commits
