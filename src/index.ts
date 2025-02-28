@@ -1,13 +1,26 @@
+import Sentry from "@sentry/node";
 import express, { Request, Response } from "express";
 import * as bodyParser from "body-parser";
 import PostService from "./services/PostService";
 
 const app = express();
 
+Sentry.init({
+    dsn: "https://0289822d16e036ff92b22c6e15dc6173@o4508896384122880.ingest.de.sentry.io/4508896389759056",
+    tracesSampleRate: 1.0,
+});
+
+//Partie 1 de l'erreur pour Sentry
+//app.use(Sentry.requestHandler());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
+
+//Partie 2 de l'erreur
+/*app.get("/debug-sentry", (req: Request, res: Response) => {
+    throw new Error("Ceci est une erreur volontaire pour tester Sentry !");
+});*/
 
 const postService = new PostService();
 

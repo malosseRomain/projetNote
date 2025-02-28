@@ -136,6 +136,13 @@ Les fichiers de test e2e ce situe dans src/e2e/
 - `npm run test:watch` : Dès la modification d'un fichier, les tests associés sont relancés automatiquement.
 - `npm run test:coverage` : Génère un rapport de couverture de code.
 
+### 6. Monitoring et Reporting d'Erreurs
+
+Installation de Sentry et création d'un compte requises.
+Création d'un projet sur le compte Sentry, dans les paramètres, section clients keys, récupérer le DSN pour le mettre dans l'initialisation du fichier index.ts.
+
+Après cela, on créer une erreur (ici avec une fonction qui n'existe pas) et on essaye ensuite de se connecter sur `http://localhost:3009/debug-sentry`. Si on retourne sur le site de sentry avec le compte créé précédemment, on peut voir l'erreur.
+
 ### 7. Automatisation avec GitHub Actions
 
 #### 7.1 Exécuter ESLint
