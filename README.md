@@ -72,7 +72,32 @@ npm start & npm dev Compile le code .ts en code .js avant de lancer node & nodem
 
 Ajout de npm compile pour compiler le code ts
 
+### 4. Debugging et Performance
 
+### Debugging : 
+
+Lancer dans un terminal à la racine du projet `npm run debug`
+
+Ouvrir Chrome, et rentrer l'url `chrome://inspect`, cliquer sur `Open dedicated DevTools for Node` et enfin accéder au fichier index.js
+
+Possibilité de placer des breakpoints sur des lignes du code d'un simple clique sur le numéro de la ligne, il suffit alors de recharger le projet pour s'arrêter sur la ligne.
+
+Option `Pause on uncaught exceptions` si on veut s'arrêter dès qu'il y a une erreur.
+
+### Performance :
+
+Nécessaire d'installer autocannon avec `npm install -g autocannon`
+
+Pour faire un test de performance on exécute:
+
+`autocannon -c 50 -d 15 http://localhost:3009 --json > rapport.json`
+
+Explications: 
+
+  - `-c 50` défini le nombre de connections simultanée (ici 50 car on ne s'attend pas à un nombre énorme de connection à la fois)
+  - `-d 15` est la durée en seconde pour chaque connection, 15 secondes permet de tester le serveur sans le surcharger
+  - On met ensuite l'adresse du serveur à tester (ici un local)
+  - `--json > rapport.json` est optionel et permet de stocker les résultats de la commande dans le json précisé, si on ignore cet argument, les résultats seront présentés directement dans le terminal.
 
 ### 5. Tests Unitaires et End-to-End
 
@@ -110,6 +135,13 @@ Les fichiers de test e2e ce situe dans src/e2e/
 - `npm run test:e2e` : Permet de lancer les tests End to End effectuer.
 - `npm run test:watch` : Dès la modification d'un fichier, les tests associés sont relancés automatiquement.
 - `npm run test:coverage` : Génère un rapport de couverture de code.
+
+### 6. Monitoring et Reporting d'Erreurs
+
+Installation de Sentry et création d'un compte requises.
+Création d'un projet sur le compte Sentry, dans les paramètres, section clients keys, récupérer le DSN pour le mettre dans l'initialisation du fichier index.ts.
+
+Après cela, on créer une erreur (ici avec une fonction qui n'existe pas) et on essaye ensuite de se connecter sur `http://localhost:3009/debug-sentry`. Si on retourne sur le site de sentry avec le compte créé précédemment, on peut voir l'erreur.
 
 ### 7. Automatisation avec GitHub Actions
 
